@@ -6,3 +6,5 @@
 - **mkdir example/** - *will create a folder called "example" in the current location*
 - **rm example.txt** - *will delete a txt file called "example"*
 - **rmdir example** - *will delete a folder called "example"*
+- **git remote set-url <remote_name> <remote_url>** - *this is how you change the github remote url if you have changed the repo name*
+- **git remote -v** - *this is how you check the current url connection*
