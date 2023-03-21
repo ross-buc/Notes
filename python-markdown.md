@@ -9,3 +9,19 @@
 eg. six_months = date.now() + relativedelta(months+=6)*
 - **import requests** - *A request module to pull data from api endpoints. eg. response = requests.get(url=example, headers=hearders, params=params)*
 - **import os** - *Using os.environ to store secret keys and api's. eg. os.environ["example"] = "1234dsf".... secret_api_key = os.environ.get("example")..... print(secret_api_key)...1234dsf*
+
+## March 21, 2023 - 18:10 PM
+- **import smtplib** -
+
+        def send_emails(self, emails, message, google_flight_link):
+            with smtplib.SMTP(EMAIL_PROVIDER_SMTP_ADDRESS) as connection:
+                connection.starttls()
+                connection.login(MY_EMAIL, MY_PASSWORD)
+                for email in emails:
+                    connection.sendmail(
+                        from_addr=MY_EMAIL,
+                        to_addrs=email,
+                        msg=f"Subject:New Low Price Flight!\n\n{message}\n{google_flight_link}".encode('utf-8')
+                    )
+    Using the smtplib module to send emails from "MY_EMAIL" to someone's email address with flight deals.
+    
