@@ -14,5 +14,6 @@
 - <hr> horizontal rule
 - <hr size="3"> to specify the size of the horizontal rule
 - <center> center align text or heading
+- 
 
 
