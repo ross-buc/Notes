@@ -25,6 +25,19 @@
 - <code>\<img src="example.jpg" alt="an example photo"></code> how to insert a photo from the local directory into a html
 - <code>\<a href="www.google.com">google\</a></code> this is to create a link to google
 - <code>\<a href="hobbies.html">click here\</a></code> this is to create a link to a local html file called hobbies
+## March 23, 2023 - 06:11 AM
+- <table>
+            <thead>
+                <tr>
+                    <th>Create</th>
+                    <th>Table</th>
+                </tr>
+            </thead>
+  </table>            
+- <code>\<tr></code> this is to create a table row
+- <code>\<td></code> this is the text to be created into table row
+- <code>\<table cellspacing="20"></code> creates some space around the cell in a table
+- 
 
 
 
