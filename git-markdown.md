@@ -19,7 +19,7 @@
 - **git branch -M main** - *changes the name of the master branch to main*
 - **git merge example** -*if you are on the main branch, this will merge the example branch into the main branch*
 ## March 24, 2023 - 08:50 AM
-- **git diff** - *command to view current changes between commits, branches, files and working directory*
+- **git diff** - *command to view current unstaged changes between commits, branches, files and working directory*
 - **git diff HEAD** - *shows all changes staged and unstaged since head.*
 - **git diff --staged** - *only shows staged changes*
 - **git diff --cached** - *same as git diff staged*
@@ -28,6 +28,7 @@
 - **git diff 4are6td..2rddr343f** -*will compare the changes between two commits using the hashes*
 - **git log** - *shows the current branch commit history*
 - **git log --oneline** - *shows a neat one line print of the git log history*
-- 
+## March 25, 2023 - 06:21 AM
+- **git clone https://github.com/Ross/example** -*This is a way of downloading a git repository from github to work on*
 
 
