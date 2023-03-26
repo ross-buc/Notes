@@ -37,6 +37,15 @@
 - <code>\<tr></code> this is to create a table row
 - <code>\<td></code> this is the text to be created into table row
 - <code>\<table cellspacing="20"></code> creates some space around the cell in a table
+## March 26, 2023 - 06:58 AM
+- **<code>\<form class= "" action=""
+    <br>\<label>Your Name:</label>
+    <br>\<input type="text">
+    <br>\<input type="password">
+    <br>\<input type="submit">
+<br>\</form></code>** - *creating a contact us page with input examples*
+- **<code>\<textarea name="name" rows="10" cols="30">\</textarea></code>** - *create a text input area on a html website*
+- **<code>\<form class= "" action="mailto:example@gmail.com" method="post"></code>** -*will open a default email application and set the mail to address as example@gmail.com once submit has been clicked*
 - 
 
 
