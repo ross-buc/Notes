@@ -46,7 +46,11 @@
 <br>\</form></code>** - *creating a contact us page with input examples*
 - **<code>\<textarea name="name" rows="10" cols="30">\</textarea></code>** - *create a text input area on a html website*
 - **<code>\<form class= "" action="mailto:example@gmail.com" method="post"></code>** -*will open a default email application and set the mail to address as example@gmail.com once submit has been clicked*
-- 
-
+## March 27, 2023 - 16:46 PM
+- <code>\<span> class = "example">example\</span></code> -*is a common inline element and will open span the width of the text*
+- Other common inline elements include images (\<img>) and (\<a>) anchors  
+- Some examples of block elements by default are (\<p>) paragraph and (
+\<h1>) headings. 
+- This can be changed by setting the "display" to "inline-block"
 
 
