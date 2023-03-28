@@ -14,4 +14,15 @@
 - Class selectors can be used for multiple elements
 - You can have multiple class on the same HTML element for example <code>\<img class="circular bacon" src="https://www.example.png" width="350" alt="Bacon PNG Image" /></code>
 - <code>img:hover {background-color: gold;}</code> This will change the background color when the mouse is hovered on an image
-- 
+## March 27, 2023 - 16:46 PM
+- <code>\{border-width:0px 10px 20px 30px;}</code> *-This will set a border width starting with the top and moving around in a clock-wise order to end with the left hand side*
+## March 28, 2023 - 05:29 AM
+- CSS static and relative positioning
+- **Position static** all elements by default are static
+- <code>display: inline-block;</code> -*place images of divs next to eachother*
+- <code>position: absolute;</code> -*This is a way of setting a position of an object anywhere on the body of the html. Specified by left, right, top and bottom.*
+- <code>position: fixed;</code> -*This is a way of fixing a position of an object or for example a navbar anywhere on the html as you are scrolling down.*
+- <code>font-family: verdana, sans-serif;</code> -*This is how you set the font for the entire html site*
+- Make sure the font you choose is websafe and used on most operating systems.
+- <code>font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;</code> -*This is a way of setting fall back fonts incase "helvetica Neue" was not compatible. It would then try Helvetica and finally Arial to render the font.*
+- Embed text from google

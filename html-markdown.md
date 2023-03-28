@@ -52,5 +52,10 @@
 - Some examples of block elements by default are (\<p>) paragraph and (
 \<h1>) headings. 
 - This can be changed by setting the "display" to "inline-block"
+## March 28, 2023 - 05:29 AM
+- Static and relative positioning
+- **Position static** -*all elements by default are static*
+- **Position relative** <code> img{position: relative; left: 30px;}</code>-*the element will be placed to the right 30px of the default static image, because it will create space/margin on the left-hand side*
+-
 
 
