@@ -26,3 +26,7 @@
 - Make sure the font you choose is websafe and used on most operating systems.
 - <code>font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;</code> -*This is a way of setting fall back fonts incase "helvetica Neue" was not compatible. It would then try Helvetica and finally Arial to render the font.*
 - Embed text from google
+## March 29, 2023 - 16:47 PM
+- <code>font-size: 2em</code> -it can adapt automatically to the font that the reader uses. The same as using percentage to set the font size. Be careful though, because the percent and em will be applied ontop of the body font-size.
+- You can avoid em being added on-top of the body font-size by using 'rem' in the headings or element instead.
+- 
