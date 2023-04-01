@@ -30,5 +30,13 @@
 - **git log --oneline** - *shows a neat one line print of the git log history*
 ## March 25, 2023 - 06:21 AM
 - **git clone https://github.com/Ross/example** -*This is a way of downloading a git repository from github to work on*
+## April 01, 2023 - 08:32 AM
+- **git stash** -*a way of stashing uncommitted changes without having to make unnecessary commits*
+- **git stash pop** -*will bring the changes that were in the stash back into the working directory*
+- **git stash apply** -*you can apply any changes that are in the stash without removing the files from the stash. This means you can apply stashed changes to multiple branches.*
+- **git stash list** -*a way of looking at the current stash list*
+- **git stash apply@{2}** -*this will apply the stash file at git stash {2} to the current directory* 
+- **git stash drop stash@{2}** -*this will remove stash@{2} file from the stash list*
+- **git stash clear** -*this will remove all stash files from the stash list*
 
 
