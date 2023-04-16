@@ -34,6 +34,48 @@ eg. six_months = date.now() + relativedelta(months+=6)*
 - <code>soup.select_one(selector=".heading")</code> -*will return the first element within the heading class*
 - <code>example.index(250)</code> - this is will return the index position of 250 in a list.
 - <code>dict(reversed(list(movie_title_dict.items())))</code> -*this is a way of reversing the order of a dictionary by the keys*
+## April 08, 2023 - 06:48 AM 
+### Selenium
+- driver.get(url="www.example.com") -*open a url*
+- result = driver.find_element(By.CSS_SELECTOR, "#articlecount a") -*find a specific element within the www.example.com html page.
+- view_source = driver.find_element(By.LINK_TEXT, "View source") -*look on a html page for "View source" link*
+- view_source.click() -*click onto that element*
+## April 16, 2023 - 08:20 AM
+- Popular backend development frameworks for python are Flask and Django
+- Flask is suited for beginners and Django for commercial or large scale projects
+- CLIENT -  SERVER  -  DATABASE
+
+````markdown
+Python Decorators Example
+
+    import time
+    current_time = time.time()
+    print(current_time)
+
+    def speed_calc_decorator(function):
+        def wrapper_function():
+            start_time = time.time()
+            function()
+            end_time = time.time()
+            print(f"{function.__name__} run speed: {end_time - start_time}s")
+        return wrapper_function
+
+    @speed_calc_decorator
+    def fast_function():
+        for i in range(10000000):
+            i * i
+            
+    @speed_calc_decorator
+    def slow_function():
+        for i in range(100000000):
+            i * i
+            
+    fast_function()
+    slow_function()
+ 
+````
+
+
 
 
     
