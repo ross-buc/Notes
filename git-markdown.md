@@ -38,5 +38,17 @@
 - **git stash apply@{2}** -*this will apply the stash file at git stash {2} to the current directory* 
 - **git stash drop stash@{2}** -*this will remove stash@{2} file from the stash list*
 - **git stash clear** -*this will remove all stash files from the stash list*
+## April 17, 2023 - 05:58 AM
+- **git checkout 4pd3f22** -*travel back to a previous commit. Head will now be detached from a branch reference (main). In this state you can view, copy or branch off etc*
+- **git checkout HEAD~1** -*will switch head to the parent commit of the current commit you are on*
+- **git checkout HEAD~2** -*will switch head to the grand-parent commit of the current commit you are on.. etc.. etc*
+- **git switch -** -*will reverse the detached head state and put you back on the branch you detached from*
+- **git checkout HEAD example.txt** -*if you have made changes to example.txt but not committed them yet, using this command it will remove the changes and revert back to most recent commit that HEAD is pointing to.*
+- **git checkout -- example.txt** -*same as above*
+- **git restore example.txt** -*will restore example.txt back to what it was at HEAD state*
+- **git restore --source HEAD~1 example.txt** -*This will restore the example.txt back to the parent commit of current HEAD, you can also put a commit hash as the source*
+- **git reset 2eP902E** -*will reset the repo back to the 2eP902E commit, but the changes will still be in the file as unstaged*
+
+
 
 
