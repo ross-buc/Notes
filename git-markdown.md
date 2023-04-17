@@ -48,6 +48,10 @@
 - **git restore example.txt** -*will restore example.txt back to what it was at HEAD state*
 - **git restore --source HEAD~1 example.txt** -*This will restore the example.txt back to the parent commit of current HEAD, you can also put a commit hash as the source*
 - **git reset 2eP902E** -*will reset the repo back to the 2eP902E commit, but the changes will still be in the file as unstaged*
+- **git reset --hard 2eP902E** -*will reset the repo back the commit and the changes will be removed completely*
+- **git revert 2eP902E** -*creates a new commit without 2eP902E commit changes*
+
+
 
 
 
