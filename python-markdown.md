@@ -74,8 +74,23 @@ Python Decorators Example
     slow_function()
  
 ````
+## April 18, 2023 - 05:58 AM
+- Setting up a basic Flask website 
+````
+from flask import Flask
+
+app = Flask(__name__)
 
 
+@app.route('/')
+def home_page():
+    return "hello world"
 
 
+if __name__ == "__main__":
+    app.run(debug=True)
+    
+````
+- When setting up a basic Flask file. You need to put all the images and CSS files in a directory called "static" and all the html files in a directory called "templates"
+-
     
