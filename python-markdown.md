@@ -92,5 +92,22 @@ if __name__ == "__main__":
     
 ````
 - When setting up a basic Flask file. You need to put all the images and CSS files in a directory called "static" and all the html files in a directory called "templates"
--
-    
+
+## May 14, 2023 - 10:26 AM
+- HTML files must be in a directory called "templates" for it to render
+- CSS files and images etc must be under a directory called "static"
+- JINJA - templating language built for Python allowing you to use python code. for example if you use {{ 5 * 30 }} the HTML will display 150
+- <code> @app.route("/guess/\<name>") </code> - We can capture the user input from the url bar into a variable called "name" using the code above. If you want to capture a number use "\<int:number>"
+````
+<!doctype html>
+<title>Hello from Flask</title>
+{% if name %}
+  <h1>Hello {{ name }}!</h1>
+{% else %}
+  <h1>Hello, World!</h1>
+{% endif %}
+````
+- We can use for loops and if statements within the HTML template using the above syntax to start and end the function
+- <code> \<a href="{{ url_for('get_blog') }}">Go to Blog\</a> </code> - This is how you can create a hyperlink on the website that routes to another part of the HTML site, In this example you will be redirected to the "Blog" page if there is a defined function called  def get_blog(): You can also pass over a variable using the the following example <code> \<a href="{{ url_for('get_blog', number=3) }}">Go to Blog\</a> </code>
+- 
+
