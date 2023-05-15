@@ -56,6 +56,14 @@
 - Static and relative positioning
 - **Position static** -*all elements by default are static*
 - **Position relative** <code> img{position: relative; left: 30px;}</code>-*the element will be placed to the right 30px of the default static image, because it will create space/margin on the left-hand side*
--
-
-
+## May 16, 2023 - 05:35 AM
+````
+<title>Bootstrap Components</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+````
+- Setting up a bootstrap connection on the HTML page
+ ```` 
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+ ````
+ - Connecting the javascript onto the HTML page
