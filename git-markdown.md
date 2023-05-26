@@ -50,9 +50,10 @@
 - **git reset 2eP902E** -*will reset the repo back to the 2eP902E commit, but the changes will still be in the file as unstaged*
 - **git reset --hard 2eP902E** -*will reset the repo back the commit and the changes will be removed completely*
 - **git revert 2eP902E** -*creates a new commit without 2eP902E commit changes*
-
-
-
-
-
+## May 26, 2023 - 08:51 AM
+- **git remote -v** -*This will display a list of remotes for the repository* 
+- **git remote add \<name> \<url>** -*This is how you set up the remote for a repository. Usually the remote name is origin*
+- **git push \<remote> \<branch>** -*This will upload the specified branch to the remote url*
+- **git push \<remote> \<local-branch>:\<remote-branch>** -*To push a local branch up to a specified remote branch*
+- **git push -u origin main** -*Using the "-u" function sets the upstream of the local main branch so that it tracks the main branch on the origin repo. You can now just type git push when on that branch and it will automatically upload or push to the set repo branch*
 
