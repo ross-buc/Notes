@@ -63,3 +63,12 @@
 - **git checkout origin/main** -*will move your head back to where the remote repo was. You can then create a new branch and make changes if necessary or using git push origin main will update the remote to the head of local repo*
 - **git branch -r** -*This command shows a list of remote branches available in the repo.*
 - **git switch \<remote-branch-name>** -*will create a new local branch of the remote branch of the same name. It also will also set up tracking of the remote branch origin/example.*
+### Fetching and Pulling
+- **Fetching** allows you to download changes from a remote repo, but those changes will not be automatically integrated into the working files. It lets you see what others have been working on, without having to mergre those changes into your local repo.
+- **git fetch \<remote>** -*This command will only fetch specific branches and history from a remote repo.* 
+- **git fetch origin** -*This will fetch all changes from the origin remote repo.* 
+- **Pulling** git pull updates the head branch with whatever changes are retrived from the remote.
+- **git pull origin \<example-branch>** -*Is the command used to merge updates from the remote repo to the local repo. If there are conflicts, these will need to be resolved.*
+- It is good practise to pull before pushing changes to remote as there may be changes already.
+- **git pull** -*using git pull will have a default remote of origin and the the current workspace branch you are working on. For example, if you are working on a branch called hotfix, if you were to type git pull, it would pull down the update from origin hotfix.*
+- Make sure to save any uncommited work before pulling
