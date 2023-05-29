@@ -56,4 +56,10 @@
 - **git push \<remote> \<branch>** -*This will upload the specified branch to the remote url*
 - **git push \<remote> \<local-branch>:\<remote-branch>** -*To push a local branch up to a specified remote branch*
 - **git push -u origin main** -*Using the "-u" function sets the upstream of the local main branch so that it tracks the main branch on the origin repo. You can now just type git push when on that branch and it will automatically upload or push to the set repo branch*
+## May 29, 2023 - 08:22 AM
 
+- **origin/main** -*This is a remote tracking branch. It's like a bookmark pointing to the last known commit on the main branch on origin. Formatted like this \<remote>/\<branch>*
+- Making a commit on the local main branch will move the where the head of main is pointing to but the origin/main remote reference doesn't move.
+- **git checkout origin/main** -*will move your head back to where the remote repo was. You can then create a new branch and make changes if necessary or using git push origin main will update the remote to the head of local repo*
+- **git branch -r** -*This command shows a list of remote branches available in the repo.*
+- **git switch \<remote-branch-name>** -*will create a new local branch of the remote branch of the same name. It also will also set up tracking of the remote branch origin/example.*
