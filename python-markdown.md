@@ -109,5 +109,98 @@ if __name__ == "__main__":
 ````
 - We can use for loops and if statements within the HTML template using the above syntax to start and end the function
 - <code> \<a href="{{ url_for('get_blog') }}">Go to Blog\</a> </code> - This is how you can create a hyperlink on the website that routes to another part of the HTML site, In this example you will be redirected to the "Blog" page if there is a defined function called  def get_blog(): You can also pass over a variable using the the following example <code> \<a href="{{ url_for('get_blog', number=3) }}">Go to Blog\</a> </code>
-- 
+
+## May 30, 2023 - 09:40 AM
+
+### Creating a virtual enviroment to work in with VSC
+- Open terminal with ctrl `
+- Type python -m venv .venv
+- Then type .\.venv\Scripts\activate 
+- You are now working within a virtual enviroment
+- You can also use a requirements.txt in the folder you are working in to create a virtual environment
+
+### Example of a for loop and if statement using Jinja2
+````
+{% if books: %}
+        <ul>
+        {% for book in books %}
+            <li> 
+            {{ book["Title"] }} - {{ book["Author"] }} - {{ book["Rating"] }}
+            </li>    
+        {% endfor %}
+        </ul>
+    {% else %}
+            <p>Library is empty.</p>
+    {% endif %}
+````
+
+### SQlite Datebase
+- SQlite is so popular that it comes preloaded with python installations.
+- Use <code>import sqlite3</code> at the top of your project
+- Then define the datebase by <code>db = sqlite3.connect("example.db")</code>
+- A file called example.db will automatically be created inside the working directory
+
+### Using Flask SQL Alchemy
+First we create a new database
+````
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///<name of database>.db"
+db = SQLAlchemy(app)
+````
+Next we create a new table
+````
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(250), unique=True, nullable=False)
+    author = db.Column(db.String(250), nullable=False)
+    rating = db.Column(db.Float, nullable=False
+ 
+db.create_all()
+````
+Then we can create a new record in that database
+````
+new_book = Book(id=1, title="Harry Potter", author="J. K. Rowling", rating=9.3)
+db.session.add(new_book)
+db.session.commit()
+````
+To read all records we can use
+````
+all_books = session.query(Book).all()
+````
+Or read a particular record by query
+````
+book = Book.query.filter_by(title="Harry Potter").first()
+````
+If you want to update the particular record by query
+````
+book_to_update = Book.query.filter_by(title="Harry Potter").first()
+book_to_update.title = "Harry Potter and the Chamber of Secrets"
+db.session.commit() 
+````
+Or update a record by the primary key
+````
+book_id = 1
+book_to_update = Book.query.get(book_id)
+book_to_update.title = "Harry Potter and the Goblet of Fire"
+db.session.commit()
+````
+and finally to delete a particular record by primary key
+````
+book_id = 1
+book_to_delete = Book.query.get(book_id)
+db.session.delete(book_to_delete)
+db.session.commit()
+````
+and delete by particular value
+````
+book_id = 1
+book_to_delete = Book.query.filter_by(title="Harry Potter").first()
+db.session.delete(book_to_delete)
+db.session.commit()
+````
+
+
+
 
