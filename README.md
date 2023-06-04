@@ -1,4 +1,4 @@
-# PythonNotes
+# Notes
 
 This repository is created to store my notes while learning the Python programming language. It serves as a reference for various Python concepts, syntax, and examples.
 
