@@ -200,6 +200,28 @@ book_to_delete = Book.query.filter_by(title="Harry Potter").first()
 db.session.delete(book_to_delete)
 db.session.commit()
 ````
+## June 04, 2023 - 09:21 AM
+
+### REST
+
+REST (Representational State Transfer) is an architectural style that defines a set of constraints and principles for designing networked applications, particularly web services, allowing communication between different systems over the internet using standard HTTP methods.
+
+Some other architectural styles are Soap, GraphQL and Falcor. But the gold standard for Web API is REST.
+
+Some HTTP verbs used by REST are:
+- GET
+- POST
+- PUT
+- PATCH
+- DELETE
+
+### Postman
+
+Postman is a software application that helps developers with creating and testing APIs, allowing for efficient collaboration and simplifying the API development process.
+
+<br></br>
+**What is the difference between PUT and PATCH?**
+*PUT replaces the entire entry and PATCH modifies or updates part of an existing entry*
 
 
 
