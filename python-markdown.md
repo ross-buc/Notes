@@ -224,5 +224,231 @@ Postman is a software application that helps developers with creating and testin
 *PUT replaces the entire entry and PATCH modifies or updates part of an existing entry*
 
 
+## June 08, 2023 - 08:41 AM
+
+### **Pandas**
+Pandas is a powerful open-source Python library that provides data manipulation and analysis tools, offering easy-to-use data structures and data analysis functionalities for handling structured data efficiently. It allows users to manipulate, filter, and analyze data in various formats, making it a popular choice for data scientists and analysts.
+
+````
+import pandas as pd
+
+# Read the CSV file into a Pandas DataFrame
+data = pd.read_csv('data.csv')
+
+# Display the first few rows of the DataFrame
+print(data.head())
+
+# Calculate the mean value of a specific column
+mean_value = data['column_name'].mean()
+print("Mean:", mean_value)
+
+# Filter the DataFrame based on a condition
+filtered_data = data[data['column_name'] > 10]
+
+# Save the filtered data to a new CSV file
+filtered_data.to_csv('filtered_data.csv', index=False)
+````
+````
+data = data.head()
+````
+The data.head() function is used to display the first few rows of a DataFrame or Series. It is a convenient way to quickly inspect the data and get a glimpse of its structure.
+
+By default, data.head() displays the first 5 rows of the DataFrame or Series. However, you can specify the number of rows to display by passing an integer argument to the head() function. For example, data.head(10) will display the first 10 rows.
+
+````
+data.shape()
+````
+In pandas, the data.shape attribute is used to determine the shape or dimensions of a DataFrame or Series. It returns a tuple containing the number of rows and columns in the data structure.
+
+For example, if you have a DataFrame called data, you can access its shape by using data.shape. The result will be a tuple in the format (rows, columns).
+````
+data.columns()
+````
+In pandas, the data.columns attribute is used to access the column labels or names of a DataFrame. It returns an Index object containing the column names.
+
+For example, if you have a DataFrame called data, you can access its column names by using data.columns. The result will be an Index object that represents the column labels.
+
+
+````
+data.isna()
+````
+The data.isna() function is used to identify missing or NaN (Not a Number) values in a DataFrame or Series. It returns a boolean DataFrame or Series of the same shape as the input, where each element is True if it corresponds to a missing value and False otherwise.
+
+````
+data.dropna()
+````
+The data.dropna() function is used to remove or drop missing values from a DataFrame or Series. It returns a new DataFrame or Series with the missing values removed.
+
+````
+clean_df['Starting Median Salary']
+````
+In the clean_df it will return the column with the heading "Starting Median Salary". You can use .max() at the end if you want to return the highest value in that column.
+
+````
+clean_df['Starting Median Salary'].idxmax()
+````
+This will return the row number with the max value in Starting Median Salary
+````
+clean_df['Undergraduate Major'].loc[43]
+````
+Will return the value in column Undergraduate Major @ row 43
+````
+clean_df.loc(43)
+````
+This will return all the column headings and values for row 43
+````
+clean_df['Undergraduate Major'].loc[clean_df['Starting Median Salary'].idxmin()]
+````
+You can nest code inside the "loc" method instead of writing two lines of code
+
+### Creating a new column
+````
+new_col = clean_df['Mid-Career 90th Percentile Salary'].subtract(clean_df['Mid-Career 10th Percentile Salary'])
+````
+### Adding the new column to an existing DF
+````
+clean_df.insert(1, "New", new_col)
+````
+The first arg being the column location starting at 0, the second arg being the name of the new column and the third arg being the variable to import into the DF
+````
+sorted = clean_df.sort_values("New")
+````
+This will create a new DF under the name sorted and sort the whole DF by the values in "New" from smallest to largest.
+````
+sorted_by_largest = clean_df.sort_values("New", ascending=False)
+````
+By adding the ascending=False arg the DF will be sorted by the largest value to the lowest value.
+````
+clean_df.groupby('Group').count()
+````
+Using the groupby method and count() we can return the DF grouped together by a defined column label
+````
+clean_df.groupby("Group")['Starting Median Salary'].mean()
+````
+Finding the mean value of the starting median salary column and grouped by the "Group" column.
+````
+pd.options.display.float_format = '{:,.2f}'.format
+````
+Set the pandas display format so that numbers have two decimal places for example 43.25 instead of 43.2534323
+
+````
+pivoted_df = test_df.pivot(index='Age', columns='Actor', values='Power')
+pivoted_df
+````
+You can re-arrange the columns and rows by using the .pivot() method. In the example above we are specifying the index, columns and values
+````
+filtered_df = df[(df['DATE'].dt.year >= 2012) & (df['DATE'].dt.year <= 2020)]
+````
+filtering the database to return all results from 2012 to 2020
+````
+tag_counts = filtered_df.groupby('TAG')['POSTS'].sum()
+````
+Grouping all the "TAG"s together and summing up their total "POSTS"
+````
+tag_counts.idxmax()
+````
+Now that we have a list of the sum of all posts per tag we can simply use idxmax() to return the TAG with the most amount of POSTS
+<br></br>
+
+### **Anaconda**
+Anaconda is a popular open-source distribution for Python and R programming languages, providing a comprehensive platform for data science and machine learning. It includes a collection of pre-installed packages and tools, simplifying the setup and management of environments, making it a convenient choice for data scientists and researchers.
+
+````
+# Create a new conda environment
+conda create -n myenv python=3.9
+
+# Activate the environment
+conda activate myenv
+
+# Install a package using conda
+conda install pandas
+
+# Install additional packages using pip
+pip install numpy matplotlib
+
+# Create a Python script (example.py) that utilizes the installed packages
+# example.py
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = pd.read_csv('data.csv')
+# Perform data analysis or visualization using pandas, numpy, and matplotlib
+
+# Deactivate the environment
+conda deactivate
+````
+
+Then you need to install jupyter by entering in the following:
+````
+conda install jupyter
+````
+and to launch type "jupyter notebook" into the terminal
+
+<br></br>
+
+## **Matplotlib**
+
+Firstly in the terminal 
+````
+conda install matplotlib
+````
+then at the top of the file
+````
+import matplotlib.pyplot as plt
+````
+Below is a basic setup of a graph using matplotlib
+````
+plt.figure(figsize=(16,10))
+plt.xlabel("Date", fontsize=14)
+plt.ylabel("Number of Posts", fontsize=14)
+plt.ylim(0, 35000)
+plt.plot(piv_df.index, piv_df['python'])
+````
+We can plot multiple sets of data on the same graph simply by adding another plt.plot:
+````
+plt.figure(figsize=(16,10))
+plt.xlabel("Date", fontsize=14)
+plt.ylabel("Number of Posts", fontsize=14)
+plt.ylim(0, 35000)
+plt.plot(piv_df.index, piv_df['python'])
+plt.plot(piv_df.index, piv_df['java'])
+````
+or if you have multiple data sets we can use a for loop 
+````
+plt.figure(figsize=(16,10))
+plt.xlabel("Date", fontsize=14)
+plt.ylabel("Number of Posts", fontsize=14)
+plt.ylim(0, 35000)
+
+for column in piv_df.columns:
+    plt.plot(piv_df.index, piv_df[column])
+````
+we can add a legend to the graph to help identify the different plots. Also we can change the properties of the line
+````
+plt.figure(figsize=(16,10))
+plt.xlabel("Date", fontsize=14)
+plt.ylabel("Number of Posts", fontsize=14)
+plt.ylim(0, 35000)
+
+for column in piv_df.columns:
+    plt.plot(piv_df.index, piv_df[column], linewidth=3, label=piv_df[column].name)
+plt.legend(fontsize=16)    
+````
+using a method calling "rolling" we can smooth out the data and specify the window and the avg using the below code
+````
+pivv_df = piv_df.rolling(window=6).mean()
+
+plt.figure(figsize=(16,10))
+plt.xlabel("Date", fontsize=14)
+plt.ylabel("Number of Posts", fontsize=14)
+plt.ylim(0, 35000)
+
+for column in pivv_df.columns:
+    plt.plot(pivv_df.index, pivv_df[column], linewidth=3, label=pivv_df[column].name)
+plt.legend(fontsize=16)
+````
+
+
 
 
