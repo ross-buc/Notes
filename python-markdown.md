@@ -283,7 +283,14 @@ The data.dropna() function is used to remove or drop missing values from a DataF
 clean_df['Starting Median Salary']
 ````
 In the clean_df it will return the column with the heading "Starting Median Salary". You can use .max() at the end if you want to return the highest value in that column.
-
+````
+filtered_theme = themes_df[themes_df['name'] == 'Star Wars']
+````
+Under the column called 'name' we can create a df with only entries that are 'Star Wars'
+````
+sets_df[sets_df['theme_id'].isin([18, 158, 209, 261])].count()
+````
+Using the isin method we can specify multiple theme_ids to look for. Then it will count them up
 ````
 clean_df['Starting Median Salary'].idxmax()
 ````
@@ -296,6 +303,18 @@ Will return the value in column Undergraduate Major @ row 43
 clean_df.loc(43)
 ````
 This will return all the column headings and values for row 43
+````
+df['name'].unique()
+````
+Will return a df with a list of unique (no two the same) in the "name" column
+````
+df['name'].nunique()
+````
+Will return a the number of unique items in the "name" column
+````
+df['name'].value_counts()
+````
+Will return a df with a list of unique (no two the same) in the "names" and how many times they appear in the df. 
 ````
 clean_df['Undergraduate Major'].loc[clean_df['Starting Median Salary'].idxmin()]
 ````
@@ -337,6 +356,10 @@ pivoted_df
 ````
 You can re-arrange the columns and rows by using the .pivot() method. In the example above we are specifying the index, columns and values
 ````
+filtered_df = df[df['DATE'] == 2020]
+````
+filtering the database to return all results from 2020
+````
 filtered_df = df[(df['DATE'].dt.year >= 2012) & (df['DATE'].dt.year <= 2020)]
 ````
 filtering the database to return all results from 2012 to 2020
@@ -348,6 +371,30 @@ Grouping all the "TAG"s together and summing up their total "POSTS"
 tag_counts.idxmax()
 ````
 Now that we have a list of the sum of all posts per tag we can simply use idxmax() to return the TAG with the most amount of POSTS
+````
+sets_df.loc[sets_df['year'] == 2019, 'num_parts'].count()
+````
+Counting the amount of "num_parts" for the year 2019
+````
+sets_by_year_df = sets_df.groupby("year").count()
+sets_df = sets_by_year_df[:-2]
+````
+This code shows a DF grouped by the column "year" and then counted. For example if there was 10 entries with the year 1953 then it would show (1953 - 10). Then we can use the slice method to remove the last two entries of the DF using [:-2]
+````
+filtered_df = sets_df[sets_df['year'] == 1954]
+filtered_df.groupby('year')['num_parts'].mean()
+````
+The DF is filtered to only show results in the year 1954. Then we have found the average amount of "num_parts" in the year 1954
+````
+themes_by_year.rename(columns = {'theme_id': 'nr_themes'}, inplace=True)
+
+new_df = themes_by_year.rename(columns={'theme_id': 'nr_themes'}, inplace=False)
+````
+This is a way of renaming the column called 'theme_id' to 'nr_themes. Using inplace=True will allow you to modify the original df. If you use rename=False you will have to assign it to a new DF
+````
+set_theme_count = pd.DataFrame({'id': set_theme_count.index, 'set_count': set_theme_count.values})
+````
+We can rename a df without index and value column names by using pd.DataFrame and then using a dict to set the values. Make sure to use a capital F in DataFrame
 <br></br>
 
 ### **Anaconda**
