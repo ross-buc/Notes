@@ -278,7 +278,22 @@ The data.isna() function is used to identify missing or NaN (Not a Number) value
 data.dropna()
 ````
 The data.dropna() function is used to remove or drop missing values from a DataFrame or Series. It returns a new DataFrame or Series with the missing values removed.
-
+````
+rows_with_na = df[df.isna().any(axis=1)]
+````
+This will return each row that is missing data in one or all of the columns for that row.
+````
+rows_with_na = df[df.isna().any(axis=0)]
+````
+This will return each column that is missing data in one or all of the columns. You dont have to specify the axis=0 as it is 0 by default
+````
+{df_btc_price.isna().values.any()}
+````
+This will return a True or False statement if there are any NA values in the DF
+````
+{df_btc_price.isna().values.sum()}
+````
+This will return the sum of all NA values in the DF
 ````
 clean_df['Starting Median Salary']
 ````
@@ -395,6 +410,28 @@ This is a way of renaming the column called 'theme_id' to 'nr_themes. Using inpl
 set_theme_count = pd.DataFrame({'id': set_theme_count.index, 'set_count': set_theme_count.values})
 ````
 We can rename a df without index and value column names by using pd.DataFrame and then using a dict to set the values. Make sure to use a capital F in DataFrame
+````
+pd.DataFrame(df_tesla).dtypes
+````
+Using dtypes is a way of finding out what data types are present in each column in the DF. Object = "apple", "banana" etc. int64 = 1,2,3,4 etc and float64 = 12.56, 23.54, 44.22 etc
+````
+pd.DataFrame(df_tesla).dtypes
+````
+Using dtypes is a way of finding out what data types are present in each column in the DF. Object = "apple", "banana" etc. int64 = 1,2,3,4 etc and float64 = 12.56, 23.54, 44.22 etc
+````
+df.DATE = pd.to_datetime(df.DATE)
+````
+To convert a date or month column into a datetime object we can use the pd.to_datetime function to convert the entries into datetime objects
+````
+df_btc_price.set_index('DATE', inplace=True)
+````
+Using the set_index function we can define the index 
+````
+df_btc_monthly = df_btc_price.resample('M', on='DATE').mean()
+````
+We can use the .resample function change a datetime object originally set in days to months using the above code. We can also change the value to .last() if you want to make the value equal the last price for that month or max(), min() etc. You can also set the rule to 'Y' for year, 'T' for minute 'D' for day. Checkout more [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)
+
+
 <br></br>
 
 ### **Anaconda**
@@ -495,6 +532,36 @@ for column in pivv_df.columns:
     plt.plot(pivv_df.index, pivv_df[column], linewidth=3, label=pivv_df[column].name)
 plt.legend(fontsize=16)
 ````
+A few points from the example below
+  - Using the ax1.twinx() method is a way of plotting two data sets on the y axis to compare
+  - linewidth to set the thickness of the line on the graph
+  - linestyle to set it to dotted
+  - set_xlim and set_ylim to set the x and y axis value starting points
+  - ax1.grid to overlay a light gray grid onto the graph
+  ````
+  plt.figure(figsize=(14,8), dpi=200)
+ax1 = plt.gca()
+ax2 = ax1.twinx()
+plt.title('UE Benefits Search vs UE Rate 2004-20')
+plt.xticks(fontsize=14, rotation=45)
+ax1.plot(ue_df['MONTH'], ue_df['UNRATE'], color='#FF0000', linewidth=2.5, linestyle='--')
+ax2.plot(ue_df['MONTH'], ue_df['UE_BENEFITS_WEB_SEARCH'], color='b', linewidth=2.5, linestyle='--')
+
+# Set the minimum and maximum values on the axes
+ax1.set_ylim([0, 15000])
+ax1.set_xlim([ue_df['MONTH'].min(), ue_df['MONTH'].max()])
+
+ax1.set_ylabel('FRED U/E Rate', color='#FF0000')
+ax2.set_ylabel('Monthly Search of "Unemployment Benefits"', color='blue')
+
+ax1.xaxis.set_major_locator(years)
+ax1.xaxis.set_major_formatter(years_fmt)
+ax1.xaxis.set_minor_locator(months)
+ax1.grid(color='grey', linestyle='--')
+plt.show()
+````
+
+
 
 
 
