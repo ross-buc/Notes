@@ -295,6 +295,22 @@ This will return a True or False statement if there are any NA values in the DF
 ````
 This will return the sum of all NA values in the DF
 ````
+df_apps_clean.duplicated().values.sum()
+````
+Will give you the total amount of duplicates in the df_apps_clean DF
+````
+duplicated_rows = df_apps_clean[df_apps_clean.duplicated()]
+````
+Searching for duplicated entries and creating a DF from the results
+````
+duplicated_rows[duplicated_rows["App"] == 'Instagram']
+````
+Searching the duplicated_rows DF for the keyword "Instragram" under column "App"
+````
+df_apps_clean.drop_duplicates(subset=['App', 'Type', 'Price'])
+````
+The standard drop_duplicates function will only drop the record if every column entry is identical. We can negate this by specifying "subset" in this example and requiring the app, type and price to be identical for the entry to be dropped.
+````
 clean_df['Starting Median Salary']
 ````
 In the clean_df it will return the column with the heading "Starting Median Salary". You can use .max() at the end if you want to return the highest value in that column.
@@ -329,21 +345,29 @@ Will return a the number of unique items in the "name" column
 ````
 df['name'].value_counts()
 ````
-Will return a df with a list of unique (no two the same) in the "names" and how many times they appear in the df. 
+Will return a df with a list of unique (no two the same) in the "names" and how many times they appear in the df.
+````
+df_apps.sample(4)
+````
+we can grab a random sample of 4 rows using this code 
 ````
 clean_df['Undergraduate Major'].loc[clean_df['Starting Median Salary'].idxmin()]
 ````
 You can nest code inside the "loc" method instead of writing two lines of code
 
-### Creating a new column
+Creating a new column
 ````
 new_col = clean_df['Mid-Career 90th Percentile Salary'].subtract(clean_df['Mid-Career 10th Percentile Salary'])
 ````
-### Adding the new column to an existing DF
+Adding the new column to an existing DF
 ````
 clean_df.insert(1, "New", new_col)
 ````
 The first arg being the column location starting at 0, the second arg being the name of the new column and the third arg being the variable to import into the DF
+````
+df_apps.drop('Last_Updated', axis=1, inplace=True)
+````
+Deleting the entire column called "Last_Updated" in the same DF using the inplace=True
 ````
 sorted = clean_df.sort_values("New")
 ````
@@ -360,6 +384,10 @@ Using the groupby method and count() we can return the DF grouped together by a 
 clean_df.groupby("Group")['Starting Median Salary'].mean()
 ````
 Finding the mean value of the starting median salary column and grouped by the "Group" column.
+````
+df_apps_clean.sort_values(['Rating', 'Reviews'], ascending=[False, False])
+````
+sorting values by specifying two columns will provide a more accurate answer when it comes to the highest rated and reviewed app
 ````
 pd.options.display.float_format = '{:,.2f}'.format
 ````
