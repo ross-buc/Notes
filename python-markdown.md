@@ -424,6 +424,10 @@ sets_df = sets_by_year_df[:-2]
 ````
 This code shows a DF grouped by the column "year" and then counted. For example if there was 10 entries with the year 1953 then it would show (1953 - 10). Then we can use the slice method to remove the last two entries of the DF using [:-2]
 ````
+new_clean_df[['App', 'Installs']].groupby('Installs').count()
+````
+Creating a result of two columns App and Installs then grouping the results by how many apps are at each amount of installs
+````
 filtered_df = sets_df[sets_df['year'] == 1954]
 filtered_df.groupby('year')['num_parts'].mean()
 ````
@@ -458,8 +462,22 @@ Using the set_index function we can define the index
 df_btc_monthly = df_btc_price.resample('M', on='DATE').mean()
 ````
 We can use the .resample function change a datetime object originally set in days to months using the above code. We can also change the value to .last() if you want to make the value equal the last price for that month or max(), min() etc. You can also set the rule to 'Y' for year, 'T' for minute 'D' for day. Checkout more [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)
-
-
+````
+df['Install'] = df['Install'].str.replace(',', '')
+````
+Removing unwanted characters in a column so we can convert it to a int or float dtype
+````
+df["Install"] = df["Install"].astype(float)
+````
+Will convert the Install column from an object type to a float type
+````
+new_clean_df = new_clean_df[new_clean_df['Price'] <= 250.00]
+````
+filtering the df to only have Prices that are equal to or less that 250
+````
+new_clean_df.insert(10, "Revenue_Estimate", new_clean_df['Price'] * new_clean_df['Installs'])
+````
+Creating a new column called Revenue_Estimate and the value being the Price multiplied by the Install and returned into the Revenue_Estimate column
 <br></br>
 
 ### **Anaconda**
@@ -588,9 +606,81 @@ ax1.xaxis.set_minor_locator(months)
 ax1.grid(color='grey', linestyle='--')
 plt.show()
 ````
+Data visualisation with Plotly
+````
+import plotly.express as px
+````
+If you are inside a jupyter notebook and you want to pip install use this
+````
+!pip install plotly
+````
+first create a pie chart with
+````
+fig = px.pie(labels=ratings.index, values=ratings.values)
+fig.show()
+````
+And to adjust the title, names, positions etc
+````
+fig = px.pie(labels=ratings.index, 
+             values=ratings.values,
+            title="Content Rating",
+            names=ratings.index)
+fig.update_traces(textposition='outside',
+                 textinfo='percent+label')
+fig.show()
+````
+to make the pie chart a donut chart add the hole argument
+````
+fig = px.pie(labels=ratings.index, 
+             values=ratings.values,
+            title="Content Rating",
+            names=ratings.index,
+            hole=0.6)
+fig.update_traces(textposition='outside',
+                 textinfo='percent+label')
+fig.show()
+````
+Bar chart easy setup
+````
+bar = px.bar(x=top_10_cat.index, y=top_10_cat.values)
+bar.show()
+````
+Bar chart set to horizontal with labelling
+````
+h_bar = px.bar(x = category_installs.Installs,
+                y = category_installs.index,
+                orientation='h',
+                title='Category Popularity')
+    
+h_bar.update_layout(xaxis_title='Number of Downloads', yaxis_title='Category')
+h_bar.show()
+````
 
+## **NumPy**
 
+NumPy is a Python library that’s used in almost every field of science and engineering. It’s practically THE standard for working with numerical data in Python.
 
+````
+a = np.arange(10, 30)
 
+array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29])
+````
+We can use np.arange to create an array using a starting value and ending value
+````
+a[-3:]
+array([27, 28, 29])
 
+a[3:6]
+array([13, 14, 15])
+
+a[12:]
+array([22, 23, 24, 25, 26, 27, 28, 29])
+
+a[::2]
+array([10, 12, 14, 16, 18, 20, 22, 24, 26, 28])
+
+a[::-1]
+array([29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10])
+````
+Using python list slicing we can return the array with specific starting and ending aswell as reversing a list of numbers
 
