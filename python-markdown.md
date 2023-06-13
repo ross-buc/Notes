@@ -229,7 +229,7 @@ Postman is a software application that helps developers with creating and testin
 ### **Pandas**
 Pandas is a powerful open-source Python library that provides data manipulation and analysis tools, offering easy-to-use data structures and data analysis functionalities for handling structured data efficiently. It allows users to manipulate, filter, and analyze data in various formats, making it a popular choice for data scientists and analysts.
 
-````
+``` python
 import pandas as pd
 
 # Read the CSV file into a Pandas DataFrame
@@ -247,7 +247,7 @@ filtered_data = data[data['column_name'] > 10]
 
 # Save the filtered data to a new CSV file
 filtered_data.to_csv('filtered_data.csv', index=False)
-````
+```
 ````
 data = data.head()
 ````
@@ -443,6 +443,14 @@ set_theme_count = pd.DataFrame({'id': set_theme_count.index, 'set_count': set_th
 ````
 We can rename a df without index and value column names by using pd.DataFrame and then using a dict to set the values. Make sure to use a capital F in DataFrame
 ````
+data.info()
+````
+Will give a good summary of the DF
+````
+data.describe()
+````
+Gives a good summary or mins, maxs, and percentile
+````
 pd.DataFrame(df_tesla).dtypes
 ````
 Using dtypes is a way of finding out what data types are present in each column in the DF. Object = "apple", "banana" etc. int64 = 1,2,3,4 etc and float64 = 12.56, 23.54, 44.22 etc
@@ -462,28 +470,36 @@ Using the set_index function we can define the index
 df_btc_monthly = df_btc_price.resample('M', on='DATE').mean()
 ````
 We can use the .resample function change a datetime object originally set in days to months using the above code. We can also change the value to .last() if you want to make the value equal the last price for that month or max(), min() etc. You can also set the rule to 'Y' for year, 'T' for minute 'D' for day. Checkout more [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)
-````
+``` python
+data_clean['Decade_Release'] = data_clean['Realease_Date'].dt.year // 10 * 10
+```
+An example of converting a date into a decade format using floor division and datetime
+``` python
 df['Install'] = df['Install'].str.replace(',', '')
-````
+```
 Removing unwanted characters in a column so we can convert it to a int or float dtype
-````
+``` python
 df["Install"] = df["Install"].astype(float)
-````
+```
 Will convert the Install column from an object type to a float type
-````
+``` python
 new_clean_df = new_clean_df[new_clean_df['Price'] <= 250.00]
-````
+```
 filtering the df to only have Prices that are equal to or less that 250
-````
+``` python
 new_clean_df.insert(10, "Revenue_Estimate", new_clean_df['Price'] * new_clean_df['Installs'])
-````
+```
 Creating a new column called Revenue_Estimate and the value being the Price multiplied by the Install and returned into the Revenue_Estimate column
+``` python
+subset = data.query('USD_Worldwide_Gross > 0 and USD_Domestic_Gross == 0')
+```
+Using .query we can create a subset of the dataframe quickly using the code example above
 <br></br>
 
 ### **Anaconda**
 Anaconda is a popular open-source distribution for Python and R programming languages, providing a comprehensive platform for data science and machine learning. It includes a collection of pre-installed packages and tools, simplifying the setup and management of environments, making it a convenient choice for data scientists and researchers.
 
-````
+``` python
 # Create a new conda environment
 conda create -n myenv python=3.9
 
@@ -507,12 +523,12 @@ data = pd.read_csv('data.csv')
 
 # Deactivate the environment
 conda deactivate
-````
+```
 
 Then you need to install jupyter by entering in the following:
-````
+``` python
 conda install jupyter
-````
+```
 and to launch type "jupyter notebook" into the terminal
 
 <br></br>
@@ -520,32 +536,32 @@ and to launch type "jupyter notebook" into the terminal
 ## **Matplotlib**
 
 Firstly in the terminal 
-````
+``` python
 conda install matplotlib
-````
+```
 then at the top of the file
 ````
 import matplotlib.pyplot as plt
 ````
 Below is a basic setup of a graph using matplotlib
-````
+``` python
 plt.figure(figsize=(16,10))
 plt.xlabel("Date", fontsize=14)
 plt.ylabel("Number of Posts", fontsize=14)
 plt.ylim(0, 35000)
 plt.plot(piv_df.index, piv_df['python'])
-````
+```
 We can plot multiple sets of data on the same graph simply by adding another plt.plot:
-````
+``` python
 plt.figure(figsize=(16,10))
 plt.xlabel("Date", fontsize=14)
 plt.ylabel("Number of Posts", fontsize=14)
 plt.ylim(0, 35000)
 plt.plot(piv_df.index, piv_df['python'])
 plt.plot(piv_df.index, piv_df['java'])
-````
+```
 or if you have multiple data sets we can use a for loop 
-````
+``` python
 plt.figure(figsize=(16,10))
 plt.xlabel("Date", fontsize=14)
 plt.ylabel("Number of Posts", fontsize=14)
@@ -553,9 +569,9 @@ plt.ylim(0, 35000)
 
 for column in piv_df.columns:
     plt.plot(piv_df.index, piv_df[column])
-````
+```
 we can add a legend to the graph to help identify the different plots. Also we can change the properties of the line
-````
+``` python
 plt.figure(figsize=(16,10))
 plt.xlabel("Date", fontsize=14)
 plt.ylabel("Number of Posts", fontsize=14)
@@ -564,9 +580,9 @@ plt.ylim(0, 35000)
 for column in piv_df.columns:
     plt.plot(piv_df.index, piv_df[column], linewidth=3, label=piv_df[column].name)
 plt.legend(fontsize=16)    
-````
+```
 using a method calling "rolling" we can smooth out the data and specify the window and the avg using the below code
-````
+``` python
 pivv_df = piv_df.rolling(window=6).mean()
 
 plt.figure(figsize=(16,10))
@@ -577,14 +593,14 @@ plt.ylim(0, 35000)
 for column in pivv_df.columns:
     plt.plot(pivv_df.index, pivv_df[column], linewidth=3, label=pivv_df[column].name)
 plt.legend(fontsize=16)
-````
+```
 A few points from the example below
   - Using the ax1.twinx() method is a way of plotting two data sets on the y axis to compare
   - linewidth to set the thickness of the line on the graph
   - linestyle to set it to dotted
   - set_xlim and set_ylim to set the x and y axis value starting points
   - ax1.grid to overlay a light gray grid onto the graph
-  ````
+  ``` python
   plt.figure(figsize=(14,8), dpi=200)
 ax1 = plt.gca()
 ax2 = ax1.twinx()
@@ -605,7 +621,7 @@ ax1.xaxis.set_major_formatter(years_fmt)
 ax1.xaxis.set_minor_locator(months)
 ax1.grid(color='grey', linestyle='--')
 plt.show()
-````
+```
 Data visualisation with Plotly
 ````
 import plotly.express as px
@@ -620,7 +636,7 @@ fig = px.pie(labels=ratings.index, values=ratings.values)
 fig.show()
 ````
 And to adjust the title, names, positions etc
-````
+``` python
 fig = px.pie(labels=ratings.index, 
              values=ratings.values,
             title="Content Rating",
@@ -628,9 +644,9 @@ fig = px.pie(labels=ratings.index,
 fig.update_traces(textposition='outside',
                  textinfo='percent+label')
 fig.show()
-````
+```
 to make the pie chart a donut chart add the hole argument
-````
+``` python
 fig = px.pie(labels=ratings.index, 
              values=ratings.values,
             title="Content Rating",
@@ -639,14 +655,14 @@ fig = px.pie(labels=ratings.index,
 fig.update_traces(textposition='outside',
                  textinfo='percent+label')
 fig.show()
-````
+```
 Bar chart easy setup
 ````
 bar = px.bar(x=top_10_cat.index, y=top_10_cat.values)
 bar.show()
 ````
 Bar chart set to horizontal with labelling
-````
+``` python
 h_bar = px.bar(x = category_installs.Installs,
                 y = category_installs.index,
                 orientation='h',
@@ -654,19 +670,19 @@ h_bar = px.bar(x = category_installs.Installs,
     
 h_bar.update_layout(xaxis_title='Number of Downloads', yaxis_title='Category')
 h_bar.show()
-````
+```
 
 ## **NumPy**
 
 NumPy is a Python library that’s used in almost every field of science and engineering. It’s practically THE standard for working with numerical data in Python.
 
-````
+``` python
 a = np.arange(10, 30)
 
 array([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29])
-````
+```
 We can use np.arange to create an array using a starting value and ending value
-````
+``` python
 a[-3:]
 array([27, 28, 29])
 
@@ -681,6 +697,6 @@ array([10, 12, 14, 16, 18, 20, 22, 24, 26, 28])
 
 a[::-1]
 array([29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10])
-````
+```
 Using python list slicing we can return the array with specific starting and ending aswell as reversing a list of numbers
 
