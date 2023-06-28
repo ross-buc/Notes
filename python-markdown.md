@@ -295,6 +295,14 @@ This will return a True or False statement if there are any NA values in the DF
 ````
 This will return the sum of all NA values in the DF
 ````
+df_data.isna().sum(axis=0)
+````
+This will return a list of all the columns and how many NA values are in each column.
+````
+df_na_entries = df_data[df_data.isna().any(axis=1)]
+````
+Will create a new df with all the entries that had a NA value
+````
 df_apps_clean.duplicated().values.sum()
 ````
 Will give you the total amount of duplicates in the df_apps_clean DF

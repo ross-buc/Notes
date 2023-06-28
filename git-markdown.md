@@ -72,3 +72,5 @@
 - It is good practise to pull before pushing changes to remote as there may be changes already.
 - **git pull** -*using git pull will have a default remote of origin and the the current workspace branch you are working on. For example, if you are working on a branch called hotfix, if you were to type git pull, it would pull down the update from origin hotfix.*
 - Make sure to save any uncommited work before pulling
+## June 27, 2023 - 10:50 AM
+The git merge --no-ff command is used in Git to merge a branch into the current branch while avoiding a "fast-forward" merge. A fast-forward merge moves the current branch pointer to the latest commit of the merged branch if it's ahead, making it appear as though the commits were made directly on the current branch. The --no-ff option, however, forces Git to create a new commit for the merge, even if a fast-forward is possible, thereby preserving the separate history of the merged branch.
