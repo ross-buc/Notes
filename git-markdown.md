@@ -84,3 +84,21 @@ An example of a git merge with a conflict on a branch would look like this:
 - git merge my-new-feature
 - git push origin main
 
+## June 28, 2023 - 09:05 AM
+
+To set a second remote for a git repo do the following
+- **git remote add upstream**
+
+This will add a second remote destination for that particular repo
+
+Open source development on github usually flows like this:
+- Fork the offical project repo
+- clone that fork onto your machine
+- make changes and push those changes up to your cloned forked
+- then sumbit a pull request from your forked repo to the offical project repo
+
+## July 12, 2023 - 07:36 AM
+
+Rebasing
+
+Git rebase is a command that allows you to integrate changes from one branch onto another by moving, replaying, or modifying commits in a more linear manner. It achieves this by finding a common ancestor between the source and target branch and then applying each commit from the source branch onto the target branch individually, resulting in a cleaner commit history. It's useful when working in teams to maintain a clean and logical branch structure, incorporating the latest changes from a shared branch, and resolving any conflicts that may arise during the process.
