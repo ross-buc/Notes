@@ -19,3 +19,25 @@ SATA uses a 7-pin L-shaped data connector with one device per port. SATA operate
 CPU Virtualization is a hardware feature found in all current AMD & Intel CPUs that allows a single processor to act as if it was multiple individual CPUs. This allows an operating system to more effectively & efficiently utilize the computer's CPU power to run faster.
 
 An x86 or 32-bit processor can address a maximum of 4GB of RAM
+
+DDR stands for Dual Data Rate
+
+If you see for example PC3-10600 on a DDR memeory stick it usually means the transfer speed measured in MB/s so this stick would have 10,600 MegaBytes per second of throughput
+
+When using a multi channel configurations, use the same model, speed, and throughput of memory
+
+**ECC - Error Correcting Code**
+Detects and corrects an error
+
+Non-Parity memory does not check for errors and allows data to be put in or taken out. Cheap to manufacture
+
+Parity memory performs basic error checking and ensures the memory contents reliable
+
+**BIOS** Basic Input/Output System up to 32bit systems
+
+**CMOS** is a battery on the motherboard. It saves the bios settings 
+
+**POST** Power-on Self-Test
+
+**TPM** Provides encrytion and checks the UEFI has not been tampered with and provides a secure boot-up
+
