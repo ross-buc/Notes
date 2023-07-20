@@ -41,3 +41,54 @@ Parity memory performs basic error checking and ensures the memory contents reli
 
 **TPM** Provides encrytion and checks the UEFI has not been tampered with and provides a secure boot-up
 
+12v, 5v, 3.3v dc are common voltages found in PCs
+
+RAID 0 Striping of data, has no loss of space on the disks but offers no redundancy
+
+RAID 1 provides mirroring and full redundancy
+
+RAID 5 provides redundancy through parity and is heavily used in servers
+
+RAID 6 Striping with Dual Parity
+
+RAID 10 provides Mirroring and Striping and requires 4 disks
+
+Failure Resistant RAIDS 1 & 5
+Protection against the loss of erased data
+
+Fault Tolerant RAIDS 1, 5 ,6. RAID can function even when a component fails
+
+Disaster Tolerant RAID 10, with two independent zones with full data access
+
+Type 1 Hypervisor (Bare Metal)
+Runs directly on the host hardware and functions as the operating system.
+
+Type 2 Hypervisor
+Runs within the normal operating system
+
+Each virtual machine runs its own operating system
+
+Containerization. Type of virtualization applied by a host operating system to provision an isolated execution environment for an application. Each container relies on a common host OS as the base for each container
+
+ Infrastructure as a Service (IaaS) is a cloud computing service that enables a consumer to outsource computing equipment purchases and running their own data center.
+
+ SaaS - Software as a Service, application, data, runtime, middleware, o/s, virtualization, servers, storage, networking
+
+ PaaS - Platform as a Service, runtime, middleware, o/s, virtualization, servers, storage, networking
+
+ IaaS - Infrastructure as a Service, Virtualization, servers, storage, networking
+
+
+SDN - Software defined network is broken up into 4 parts. Application layer, Control layer, Infrastructure layer and Management plane
+
+ WAN = Wide Area Network (Countrywide, Worldwide)
+
+ MAN = Metropolitan Area Network (City or Country)
+
+ CAN = Campus Area Network (Campus or Business Park)
+
+ LAN = Local Area Network (Room or Building)
+
+ PAN = Personal Area Network (Around a person)
+
+ SoHo LAN = Small office, Home office local area network. Uses a centralized server or simply provides clients access to local devices like printers, file storage, or the internet
