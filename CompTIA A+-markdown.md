@@ -92,3 +92,62 @@ SDN - Software defined network is broken up into 4 parts. Application layer, Con
  PAN = Personal Area Network (Around a person)
 
  SoHo LAN = Small office, Home office local area network. Uses a centralized server or simply provides clients access to local devices like printers, file storage, or the internet
+
+ ### WIFI
+
+ DSSS - Direct Sequence Spread Spectrum, not used very often, non overlaping channels
+
+ FHSS - Frequency hopping spread spectrum, allows devices to hop between predetermined frequenices
+
+OFDM - Orthogonal Frequency Division Multiplexing, multiple channels and frequencies
+
+Channel Bonding - Allows for the creation of a wider channel by merging neighboring channels into one
+
+### Wireless Standards
+
+Need to know the 
+- Standard
+- Band
+- Bandwidth
+
+802.11a = 5 GHz = 54 Mbps
+
+802.11b = 2.4GHz = 11 Mbps
+
+802.11g = 2.4GHz = 54 Mbps
+
+802.11n = 2.4 and 5 GHz = 150 Mbps/600 Mbps
+
+802.11ac = 5 GHz = 3 Gbps
+
+802.11ax = 2.4, 5 and 6 GHz = 9.6 Gbps
+
+### Wireless Security
+802.11i
+
+Open = No security or protection
+
+WEP = IV (initialization vectors)
+
+WPA = TKIP and RC4 (weak dont use it)
+
+WPA2 = CCMP and AES (strong and used today)
+
+Good practice to disable SSID
+
+### Fixed Wireless
+
+Wi-fi  (802.11) creates point to point connections between buildings for examples
+
+Cellular - Uses a larger antenna and larger hotspot within an office or home
+
+Microwave - Creates point to point connection between two or more buildings and can transmit further distance than a wifi link
+
+Satellite - long range, usually has a dish faced up towards a satellite in low earth orbit or geosynchronous
+
+### NFC Near Field Communication
+
+Mobile payments
+
+POS point of sale
+
